@@ -1,3 +1,5 @@
 .DS_Store
 target
-.log
+*.log
+lib_managed
+project/build/target

@@ -1,0 +1,36 @@
+srails
+--------------
+
+A rails style web framework for Scala.
+
+$ sbt
+> update
+> jetty-run
+
+-------------
+Controller
+-------------
+
+package com.cmoos.helloworld
+
+import com.cmoos.srails._
+
+class MainController extends Controller {
+  def index() {
+    log.info("MainController: index")
+    render_text("Hello, world!")
+  }
+}
+
+
+-------------
+Config
+-------------
+
+routes {
+  index {
+    path = "^/"
+    controller = "com.cmoos.helloworld.MainController"
+    action = "index"
+  }
+}

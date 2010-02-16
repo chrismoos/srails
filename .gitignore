@@ -3,3 +3,4 @@ target
 *.log
 lib_managed
 project/build/target
+project/boot

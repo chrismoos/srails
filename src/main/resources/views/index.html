@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+	<title>XMPP Web</title>
+	<link rel="stylesheet" type="text/css" href="/css/themes/smoothness/jquery-ui.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/site.css"/>
+	<script src="http://www.google.com/jsapi"></script>
+	<script>
+	google.load("jquery", "1.4.1");
+	google.load("jqueryui", "1.7.2");
+	</script>
+</head>
+<body>
+	<div id="overlay"></div>
+<script>
+function xmpp_login(username, password) {
+	$.getJSON("/xmpp/login", {username: username, password: password}, function(data) {
+		if(data.status == 'ok') {
+			
+		}
+	});
+}
+	
+	$(document).ready(function() {
+		$("#loginDialog").dialog({
+			width: '350px',
+			resizable: false,
+			modal: true,
+			draggable: false,
+			closeOnEscape: false,
+			open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); }
+		});
+		
+		$("#loginButton").click(function() {
+			xmpp_login($("#loginUsername").val(), $("#loginPassword").val());
+		});
+	});
+	</script>
+
+	<div id="loginDialog" title="XMPP Login">
+		<div class="form">
+			<ul>
+				<li>
+					<span>Username (jid):</span> <input type="text" id="loginUsername"/>
+				</li>
+				<li>
+					<span>Password:</span> <input type="password" id="loginPassword"/>
+				</li>
+				<li><input type="button" name="login" id="loginButton" value="Login"/></li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" version="2.4"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http:/java.sun.com/dtd/web-app_2_3.dtd">
+  <servlet>
+    <servlet-name>main</servlet-name>
+    <servlet-class>com.cmoos.srails.servlet.MainServlet</servlet-class>
+  </servlet>
+
+	<servlet>
+    <servlet-name>initializer</servlet-name>
+    <servlet-class>com.cmoos.srails.servlet.InitializerServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>main</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/css/*</url-pattern>
+	</servlet-mapping>
+</web-app>
